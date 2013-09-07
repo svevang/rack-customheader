@@ -6,7 +6,7 @@ Set custom HTTP headers using this special rack middleware.
 
 Add this line to your application's Gemfile:
 
-    gem 'rack-customheader', git: git@github.com:svevang/rack-customheader.git
+    gem 'rack-customheader', git: "git@github.com:svevang/rack-customheader.git"
 
 And then execute:
 
@@ -18,12 +18,12 @@ E.g you can force permissive CORS headers on all requests in case your CDN cache
 
 In config/environements/production.rb:
 
-    config.middleware.insert_before(ActionDispatch::Static, Rack::CustomHeader, {'Access-Control-Allow-Origin' => '*', 'Access-Control-Allow-Methods' => 'GET, POST'})
+    # Make sure to insert this middleware before `ActionDispatch::Static`
+    config.middleware.insert_before(ActionDispatch::Static, 
+                                    Rack::CustomHeader, 
+                                    {'Access-Control-Allow-Origin' => '*', 'Access-Control-Allow-Methods' => 'GET, POST'})
 
-
-Make sure to insert this middleware before `ActionDispatch::Static` and
-serve your static assets using rails.
-
+    # serve your static assets using rails.
     config.serve_static_assets = true
 
 ## Contributing
