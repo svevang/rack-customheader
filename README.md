@@ -1,6 +1,6 @@
 # Rack::CustomHeader
 
-Set a custom header using this special rack middleware. 
+Set custom HTTP headers using this special rack middleware. 
 
 ## Installation
 
@@ -14,16 +14,17 @@ And then execute:
 
 ## Usage
 
-E.g you can set
-CORS headers:
+E.g you can force permissive CORS headers on all requests in case your CDN cache doesn't vary on Origin. _I'm looking at you Cloudfront!_
 
 In config/environements/production.rb:
 
     config.middleware.insert_before(ActionDispatch::Static, Rack::CustomHeader, {'Access-Control-Allow-Origin' => '*', 'Access-Control-Allow-Methods' => 'GET, POST'})
 
 
-Make sure to include this middleware before `ActionDispatch::Static` and
+Make sure to insert this middleware before `ActionDispatch::Static` and
 serve your static assets using rails.
+
+    config.serve_static_assets = true
 
 ## Contributing
 
