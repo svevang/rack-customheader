@@ -18,6 +18,8 @@ E.g you can force permissive CORS headers on all requests in case your CDN cache
 
 In config/environements/production.rb:
 
+    require 'rack/custom_header'
+    
     # Make sure to insert this middleware before `ActionDispatch::Static`
     config.middleware.insert_before(ActionDispatch::Static, 
                                     Rack::CustomHeader, 
