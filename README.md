@@ -1,24 +1,29 @@
-# Rack::Customheader
+# Rack::CustomHeader
 
-TODO: Write a gem description
+Set a custom header using this special rack middleware. 
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'rack-customheader'
+    gem 'rack-customheader', git: git@github.com:svevang/rack-customheader.git
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install rack-customheader
-
 ## Usage
 
-TODO: Write usage instructions here
+E.g you can set
+CORS headers:
+
+In config/environements/production.rb:
+
+    config.middleware.insert_before(ActionDispatch::Static, Rack::CustomHeader, {'Access-Control-Allow-Origin' => '*', 'Access-Control-Allow-Methods' => 'GET, POST'})
+
+
+Make sure to include this middleware before `ActionDispatch::Static` and
+serve your static assets using rails.
 
 ## Contributing
 
