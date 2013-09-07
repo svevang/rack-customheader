@@ -6,7 +6,7 @@ Set custom HTTP headers using this special rack middleware.
 
 Add this line to your application's Gemfile:
 
-    gem 'rack-customheader', git: "git@github.com:svevang/rack-customheader.git"
+    gem 'rack-customheader', git: "git://github.com/svevang/rack-customheader.git"
 
 And then execute:
 
