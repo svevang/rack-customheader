@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version       = "0.0.1"
   spec.authors       = ["Sam Vevang"]
   spec.email         = ["sam.vevang@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Set arbitrary HTTP headers via Rack middleware}
+  spec.summary       = %q{Set arbitrary HTTP headers via Rack middleware}
   spec.homepage      = ""
   spec.license       = "MIT"
 
